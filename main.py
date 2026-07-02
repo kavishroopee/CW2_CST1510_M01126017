@@ -1,4 +1,5 @@
 import bcrypt as bc
+import sqlite3, pandas as pd
 
 def hash_password(plaintext_password):
     password_bytes = plaintext_password.encode('utf-8')
