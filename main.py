@@ -159,6 +159,31 @@ def login_user(conn):
     else:
         print("Invalid username or password.")
         return False
+    
+# Migration functions for datasets
+def migrate_cyber_incidents(conn):
+    data = pd.read_csv('DATA/cyber_incidents.csv')
+    data.to_sql('cyber_incidents', conn)
+
+def get_all_cyber_incidents(conn):
+    sql = 'SELECT * FROM cyber_incidents'
+    return pd.read_sql(sql, conn)
+
+def migrate_datasets_metadata(conn):
+    data = pd.read_csv('DATA/datasets_metadata.csv')
+    data.to_sql('datasets_metadata', conn)
+
+def get_all_datasets_metadata(conn):
+    sql = 'SELECT * FROM datasets_metadata'
+    return pd.read_sql(sql, conn)
+
+def migrate_it_tickets(conn):
+    data = pd.read_csv('DATA/it_tickets.csv')
+    data.to_sql('it_tickets', conn)
+
+def get_all_it_tickets(conn):
+    sql = 'SELECT * FROM it_tickets'
+    return pd.read_sql(sql, conn)        
 
 
 def main():
