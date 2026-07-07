@@ -2,6 +2,7 @@
 import bcrypt as bc
 import sqlite3
 import pandas as pd
+import streamlit as st
 
 def hash_password(plaintext_password):
     password_bytes = plaintext_password.encode('utf-8')
@@ -138,6 +139,8 @@ def migrate_it_tickets(conn):
 def get_all_it_tickets(conn):
     sql = 'SELECT * FROM it_tickets'
     return pd.read_sql(sql, conn)   
+
+    
 
 
 
