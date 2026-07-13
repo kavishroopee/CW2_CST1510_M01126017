@@ -6,7 +6,7 @@ import streamlit as st
 # Taking infos from files
 from app_model.schema import create_user_table
 from app_model.db import conn
-from app_model.users import add_user, get_user, hash_password
+from app_model.users import add_user, get_user
 
 def hash_password(plaintext_password):
     password_bytes = plaintext_password.encode('utf-8')

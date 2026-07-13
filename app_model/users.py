@@ -43,7 +43,6 @@ def get_all_users(conn):
     sql = 'SELECT * FROM users'
     cur.execute(sql)
     users = cur.fetchall()
-    conn.close()  # Close the connection after fetching the data
     return users
 
 # Retrieve a specific user by username
@@ -53,7 +52,6 @@ def get_user(conn, name):
     param = (name,)
     cur.execute(sql, param)
     user = cur.fetchone()
-    conn.close()  # Close the connection after fetching the data
     return user
 
 # Update a user's username in the database
